@@ -63,11 +63,11 @@ public class ContactsX extends CordovaPlugin {
                     returnError(ContactsXErrorCodes.PermissionDenied);
                 }
             } else if (action.equals("pick")) {
-                // if (PermissionHelper.hasPermission(this, READ)) {
+                if (PermissionHelper.hasPermission(this, READ)) {
                     this.pick();
-                // } else {
-                //     returnError(ContactsXErrorCodes.PermissionDenied);
-                // }
+                } else {
+                    returnError(ContactsXErrorCodes.PermissionDenied);
+                }
             } else if (action.equals("save")) {
                 if(PermissionHelper.hasPermission(this, WRITE)) {
                     this.save(args);
