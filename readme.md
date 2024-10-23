@@ -5,7 +5,7 @@
 This [Cordova](https://cordova.apache.org) Plugin is for managing Contacts. Why use this Plugin and not the ["Official" one](https://github.com/apache/cordova-plugin-contacts).
 Well, first: it's deprectated and no more work will be done there. Second (and more important): it uses a deprecated Library in iOS.
 
-**This Plugin is in active development!**
+**This updated version of the plugin manages the LIMITED permission option for iOS and removes the permissions checks for the pick contacts method (both on android and iOS)**
 
 <!-- DONATE -->
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG_global.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LMX5TSQVMNMU6&source=url)

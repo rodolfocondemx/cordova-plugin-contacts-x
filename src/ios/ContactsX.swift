@@ -77,15 +77,19 @@ import PhoneNumberKit
     func pick(command: CDVInvokedUrlCommand) {
         _callbackId = command.callbackId;
 
-        self.hasPermission { (granted) in
-            guard granted else {
-                self.returnError(error: ErrorCodes.PermissionDenied);
-                return;
-            }
-            let contactPicker = CNContactPickerViewController();
-            contactPicker.delegate = self;
-            self.viewController.present(contactPicker, animated: true, completion: nil)
-        }
+        // self.hasPermission { (granted) in
+        //     guard granted else {
+        //         self.returnError(error: ErrorCodes.PermissionDenied);
+        //         return;
+        //     }
+        //     let contactPicker = CNContactPickerViewController();
+        //     contactPicker.delegate = self;
+        //     self.viewController.present(contactPicker, animated: true, completion: nil)
+        // }
+
+        let contactPicker = CNContactPickerViewController();
+        contactPicker.delegate = self;
+        self.viewController.present(contactPicker, animated: true, completion: nil)
     }
 
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
@@ -330,7 +334,7 @@ import PhoneNumberKit
     func hasPermission(completionHandler: @escaping (_ accessGranted: Bool) -> Void, requestIfNotAvailable: Bool = false) {
         let store = CNContactStore();
         switch CNContactStore.authorizationStatus(for: .contacts) {
-                case .authorized:
+                case .limited, .authorized:
                     completionHandler(true)
                 case .denied:
                     completionHandler(false)
